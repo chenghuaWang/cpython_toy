@@ -1,6 +1,6 @@
 # cpython_Toy
 
-一个为了深入学习 python 而产生的 repo。着重于实现 python 的一些基本的抽象数据类型，使用最简单的方式来实现，至于 interpreter 部分的 parser ，VM 什么的，有空再说。
+一个为了深入学习 python 而产生的 repo。着重于实现 python 的一些基本的抽象数据类型，使用最简单的方式来实现，至于 interpreter 部分的 parser ，VM 什么的，线程什么的，有空再说。
 
 ## 已经实现的类型
 

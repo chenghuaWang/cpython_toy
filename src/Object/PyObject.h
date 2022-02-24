@@ -15,13 +15,23 @@
     int32_t ref_cnt;\
     struct _PyTypeObject_ *type
 
+#define PyObject_var_head \
+    PyObject_head;\
+    int32_t ob_size;
+
 #define PyObject_head_init(type_ptr) \
     0, type_ptr
+
+#define PyObject_var_head_init(type_ptr, _size_) \
+    0, type_ptr, _size_
 
 // below define the basic object used in python.
 typedef struct _PyObject_{
     PyObject_head;
 }PyObject;
+typedef struct _PyVarObject_{
+    PyObject_var_head;
+}PyVarObject;
 
 // below define the function used in _PyTypeObject_ 
 typedef void (*_print_)(PyObject *rhs);

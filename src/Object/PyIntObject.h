@@ -39,7 +39,7 @@ static int_block* free_list = NULL; /* free_list point to the head of list */
 static PyIntObject* small_block_array = NULL; /* A small integer array for speed consider*/
 
 // function for PyIntObject class.
-PyObject* PyInt_create(int64_t rhs);
+PyObject* PyInt_create(int64_t rhs); // TODO deallocate need tobe implement
 
 static void PyInt_print(PyObject* rhs){
     PyIntObject *tmp = (PyIntObject*)rhs;
