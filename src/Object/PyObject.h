@@ -6,7 +6,12 @@
 
 #ifndef _PYOBJECT_H_
 #define _PYOBJECT_H_
+#include <assert.h>
 #include "_obj_base_.h"
+
+#define BOOL int
+#define True 1
+#define False 0
 
 // TODO
 // #define DEBUG
