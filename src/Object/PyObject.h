@@ -50,6 +50,9 @@ typedef int64_t (*_hash_)(PyObject *rhs);
 typedef struct _PyTypeObject_{
     PyObject_head;
     char *name;
+    // memory size of objects
+    uint32_t object_size;
+    uint32_t element_size;
     // function below
     _print_ print;
     _add_ add;
@@ -69,6 +72,8 @@ static PyTypeObject PyType_Type = {
     //PyObject_head_init(&PyType_Type),
     PyObject_head_init(NULL),
     "type",
+    sizeof(PyTypeObject),
+    sizeof(PyTypeObject),
     PyType_print, /*print function*/
     NULL, /*add function*/
     NULL, /*sub function*/

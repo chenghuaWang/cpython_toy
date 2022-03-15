@@ -103,6 +103,8 @@ static int64_t PyInt_hash(PyObject* rhs){
 static PyTypeObject PyIntType = {
     PyObject_head_init(&PyType_Type),
     "int",
+    sizeof(PyIntObject),
+    sizeof(int64_t),
     PyInt_print, /*print function*/
     PyInt_add, /*add function*/
     PyInt_sub, /*sub function*/

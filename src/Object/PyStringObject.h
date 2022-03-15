@@ -9,7 +9,9 @@
 #include "PyObject.h"
 #include "string.h"
 
+///< if we need memory&time efficient way or not.
 #define STRING_ENABLE_MEM_OPTIMIZE True
+#define STRING_DEFAULT_HASH -1
 
 /*!
  * for convinence: copied form PyObject.h
@@ -22,6 +24,13 @@
     int32_t ob_size;
  */
 
+/*!
+ * @brief:
+ * ob_size: the memory of this object that can be archieved.
+ * ob_hash: the hash value of this string.
+ * ob_sstate:   if rhis string object has been process to intern or not.
+ * ob_sval: pointer to a memory, whitch has (ob_size + 1) * sizeof(char) memory.
+ */
 typedef struct _PyStringObject_{
     PyObject_var_head;
     int64_t ob_shash;
@@ -35,7 +44,8 @@ typedef struct _PyStringObject_{
  * we will use a hash-tree to record and locate
  * the small string.
  **/
-PyObject* PyString_create(const char rhs[]);
+PyObject* PyString_FromString(const char rhs[]);
+PyObject* PyString_FromStringAndSize(const char rhs[], uint32_t ss);
 
 static void PyString_print(PyObject* rhs){
     PyStringObject *tmp = (PyStringObject*)rhs;
@@ -84,6 +94,8 @@ static int64_t PyString_hash(PyObject *rhs){
 static PyTypeObject PyStringType = {
     PyObject_head_init(&PyType_Type),
     "string",
+    sizeof(PyStringObject),
+    sizeof(char),
     NULL, /*print function*/
     NULL, /*add function*/
     NULL, /*mul function*/
