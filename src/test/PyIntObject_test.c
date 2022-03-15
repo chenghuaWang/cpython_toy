@@ -15,10 +15,10 @@ int main(int args, char* argv[]){
 #endif
 
     PyObject *a = PyInt_create(-1);
-    PyObject *b = PyInt_create(0);
+    PyObject *b = PyInt_create(1001);
     PyObject *d = PyInt_create(1);
     PyObject *e = PyInt_create(2);
-    PyObject *f = PyInt_create(3);
+    PyObject *f = PyInt_create(1000);
 
     PyObject *c = ((PyIntObject*)a)->type->add(a, b);
     ((PyIntObject*)a)->type->print(c);

@@ -9,3 +9,5 @@
 - [X] python int object 包含 大整数池(linked-list 实现) 和 小整数池(array 实现)
 - [ ] python string object
 - [ ] as_Number function set for number-like class
+
+终于找到了 软工 课上休闲的摸鱼时间来写这个。
